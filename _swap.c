@@ -1,7 +1,7 @@
 #include "monty.h"
 /**
 * _swap - adds the top two elements of the stack.
-* @top: top of the stack
+* @head: top of the stack
 * @line_number: line_number
 * Return: no return
 */
@@ -15,7 +15,7 @@ int len = count_list(*head);
 if (len < 2)
 {
 fprintf(stderr, "L%d: can't swap, stack too short", line_number);
-exit (EXIT_FAILURE);
+exit(EXIT_FAILURE);
 }
 tmp = *head;
 tmp2 = tmp->next;
