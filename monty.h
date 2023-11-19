@@ -50,11 +50,12 @@ extern glo_v gv;
 
 void get_op_file(char *file);
 int exec(char *line, stack_t **stack, unsigned int line_number);
+
 /*ssize_t get_line(char **storage, size_t *size, FILE *stream);*/
 
 /*Doubly linked list functions*/
 void addnode(stack_t **top, int n);
-
+int count_list(stack_t *top);
 
 
 
@@ -63,5 +64,6 @@ void _push(stack_t **top, unsigned int line_number);
 void _pall(stack_t **top, unsigned int line_number);
 void _pint(stack_t **top, unsigned int line_number);
 void _pop(stack_t **head, unsigned int line_number);
+void _swap(stack_t **head, unsigned int line_number);
 
 #endif

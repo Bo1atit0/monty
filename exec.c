@@ -18,6 +18,7 @@ instruction_t instruct[] = {
 {"pall", _pall},
 {"pint", _pint},
 {"pop", _pop},
+{"swap", _swap},
 {NULL, NULL}
 };
 /* stack = NULL;*/
