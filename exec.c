@@ -11,11 +11,12 @@ int exec(char *line, stack_t **stack, unsigned int line_number)
 {
 int i = 0;
 char *opcode;
-char *delim = " t\n";
+char *delim = " \t\n";
 
 instruction_t instruct[] = {
 {"push", _push},
 {"pall", _pall},
+{"pint", _pint},
 {NULL, NULL}
 };
 /* stack = NULL;*/
@@ -33,7 +34,6 @@ while (instruct[i].opcode != NULL && opcode != NULL)
 if (strcmp(opcode, instruct[i].opcode) == 0)
 {
 /* printf("nexec function. Value of stack: %p\n", (void *)*stack);*/
-
 instruct[i].f(stack, line_number);
 return (0);
 }

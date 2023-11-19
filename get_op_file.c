@@ -31,7 +31,7 @@ count++;
 
 if (read > 0 || (read == 0 && line[0] != '\n'))
 {
-/*printf("Line %d: %s", count, line);*/
+/*printf("Line %d: %s", count, gv.line);*/
 exec(gv.line, &stack, count);
 }
 
