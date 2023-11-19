@@ -1,12 +1,12 @@
 #include "monty.h"
 
 /**
-* line - instruction line
-* stack: stack head
-* line_number: line number of current instruction
+* exec - executes the opcode
+* @line: line of monty file
+* @stack: stack head
+* @line_number: line number of instruction
 * Return: 0 on success
 */
-
 int exec(char *line, stack_t **stack, unsigned int line_number)
 {
 int i = 0;
