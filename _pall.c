@@ -12,7 +12,6 @@ void _pall(stack_t **top, __attribute__((unused)) unsigned int line_number)
 stack_t *head;
 head = *top;
 
-
 if (head == NULL)
 {
 return;

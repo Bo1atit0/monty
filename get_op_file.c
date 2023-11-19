@@ -2,8 +2,8 @@
 
 /**
 * get_op_file - gets opcode
-* file: file to read
-*Return:  void
+* @file: monty  file to read
+* Return:  void
 */
 
 void get_op_file(char *file)
