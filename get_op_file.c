@@ -1,17 +1,19 @@
 #include "monty.h"
 
-/*
+/**
 * get_op_file - gets opcode
-* file - file to read
+* file: file to read
+*Return:  void
 */
 
 void get_op_file(char *file)
 {
 FILE *f;
-char *line = NULL;
+char *line;
 size_t size = 0;
-ssize_t read;
+ssize_t read = 1;
 unsigned int count = 0;
+stack_t *stack = NULL;
 
 f = fopen(file, "r");
 if (f == NULL)
@@ -22,14 +24,20 @@ exit(EXIT_FAILURE);
 
 while (read > 0)
 {
-
+line = NULL;
 read = getline(&line, &size, f);
+gv.line = line;
 count++;
-if (read > 0)
+
+if (read > 0 || (read == 0 && line[0] != '\n'))
 {
-exec(line, NULL, count);
+/*printf("Line %d: %s", count, line);*/
+exec(gv.line, &stack, count);
 }
-}
+
 free(line);
+}
 fclose(f);
+free(stack);
+
 }

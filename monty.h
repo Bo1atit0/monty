@@ -1,9 +1,12 @@
 #ifndef MONTY_H
 #define MONTY_H
+#define _GNU_SOURCE
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/types.h>
+
 
 
 /**
@@ -36,8 +39,14 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+typedef struct global_variables
+{
+char *arg;
+FILE *file;
+char *line;
 
-extern char *arg;
+}glo_v;
+extern glo_v gv;
 
 void get_op_file(char *file);
 int exec(char *line, stack_t **stack, unsigned int line_number);

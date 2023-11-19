@@ -1,36 +1,51 @@
 #include "monty.h"
 
-/*
+/**
 * line - instruction line
-* stack - stack head
-* line_number - line number of current instruction
+* stack: stack head
+* line_number: line number of current instruction
+* Return: 0 on success
 */
 
 int exec(char *line, stack_t **stack, unsigned int line_number)
 {
-  int i = 0;
-  char *token;
-  char *opcode;
-  char *delim = " \t\n";
+int i = 0;
+char *opcode;
+char *delim = " \t\n";
 
-  instruction_t instruct[] = {
-                                  {"push", _push}, {"pall", _pall}
+instruction_t instruct[] = {
+{"push", _push}, 
+{"pall", _pall},
+{NULL, NULL}
 };
-  token = strtok(line, delim);
-  if (token && token[0] == '#')
-  {
-    return (0);
-  }
-  opcode = token;
-  token = strtok(NULL, delim);
-  arg = token;
-  while (instruct[i].opcode && opcode)
-    {
+/* stack = NULL;*/
+
+opcode = strtok(line, delim);
+if (opcode && opcode[0] == '#')
+{
+return (0);
+}
+gv.arg = strtok(NULL, delim);
+
+
+while (instruct[i].opcode != NULL && opcode != NULL)
+{
 if (strcmp(opcode, instruct[i].opcode) == 0)
 {
-  instruct[i].f(stack, line_number);
+/* printf("\nexec function. Value of stack: %p\n", (void *)*stack);*/
+
+instruct[i].f(stack, line_number);
+return (0);
 }
-      i++;
+i++;
 }
-  return (0);
+if (opcode == NULL && instruct[i].opcode == NULL)
+{
+fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
+free(*stack);
+exit(EXIT_FAILURE);
+}
+/*printf("exec function\n");*/
+return (0);
+
 }

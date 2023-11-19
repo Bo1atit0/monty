@@ -10,22 +10,28 @@ void addnode(stack_t **top, int n)
 {
 stack_t *newnode;
 
+
 newnode = (stack_t *)malloc(sizeof(stack_t));
+/* printf("newnode created\n");*/
 if (newnode == NULL)
 {
 printf("Error\n");
 exit(0);
 }
+
 newnode->n = n;
+
 if (*top != NULL)
 {
 newnode->next = *top;
 (*top)->prev = newnode;
-newnode->prev = NULL;
-}
+*top = newnode;
+} 
 else
 {
+newnode->next = *top;
 newnode->prev = NULL;
 *top = newnode;
 }
+
 }
