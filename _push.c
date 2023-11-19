@@ -1,8 +1,8 @@
 #include "monty.h"
 /**
 * _push - pushes a node to the stack
-* top: top of the stack
-* line_number: line number of current instruction
+* @top: top of the stack
+* @line_number: line number of current instruction
 * Return: void
 */
 void _push(stack_t **top, unsigned int line_number)
