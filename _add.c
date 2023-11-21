@@ -16,8 +16,6 @@ int res, lent = count_list(h);
 if (lent < 2)
 {
 fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
-fclose(gv.file);
-free(gv.line);
 free_stack(*top);
 exit(EXIT_FAILURE);
 }
