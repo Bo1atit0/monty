@@ -15,7 +15,6 @@ printf("%d\n", (*top)->n);
 else
 {
 fprintf(stderr, "L%d: can't pint, stack empty", line_number);
-free(*top);
 exit(EXIT_FAILURE);
 }
 }
