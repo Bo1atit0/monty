@@ -38,7 +38,7 @@ exec(gv.line, &stack, count);
 
 free(line);
 }
-while(stack)
+while (stack)
 {
 temp = stack;
 stack = stack->next;
