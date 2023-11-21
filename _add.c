@@ -25,5 +25,4 @@ res = h->n + temp->n;
 temp->n = res;
 *top = temp;
 free(h);
-
 }
