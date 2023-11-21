@@ -7,19 +7,18 @@
 */
 void _swap(stack_t **head, unsigned int line_number)
 {
-stack_t *tmp;
-stack_t *tmp2;
+stack_t *h;
 
-int len = count_list(*head);
+int len = count_list(*head), temp;
 
 if (len < 2)
 {
 fprintf(stderr, "L%d: can't swap, stack too short", line_number);
 exit(EXIT_FAILURE);
 }
-tmp = *head;
-tmp2 = tmp->next;
-*head = tmp2;
-tmp->next = tmp2->next;
-tmp2->next = tmp;
+h = *head;
+temp = h->n;
+h->n = h->next->n;
+h->next->n = temp;
 }
+
