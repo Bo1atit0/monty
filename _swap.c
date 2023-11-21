@@ -13,7 +13,11 @@ int len = count_list(*head), temp;
 
 if (len < 2)
 {
-fprintf(stderr, "L%d: can't swap, stack too short", line_number);
+fprintf(stderr, "L%d: can't swap, stack too short",
+line_number);
+fclose(gv.file);
+free(gv.line);
+free(*head);
 exit(EXIT_FAILURE);
 }
 h = *head;
