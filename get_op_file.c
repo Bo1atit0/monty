@@ -14,6 +14,7 @@ size_t size = 0;
 ssize_t read = 1;
 unsigned int count = 0;
 stack_t *stack = NULL;
+stack_t *temp;
 
 f = fopen(file, "r");
 if (f == NULL)
@@ -37,7 +38,11 @@ exec(gv.line, &stack, count);
 
 free(line);
 }
+while(stack)
+{
+temp = stack;
+stack = stack->next;
+free(temp);
+}
 fclose(f);
-free(stack);
-
 }

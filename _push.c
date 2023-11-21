@@ -31,6 +31,5 @@ i++;
 }
 }
 argg = atoi(gv.arg);
-
 addnode(top, argg);
 }
