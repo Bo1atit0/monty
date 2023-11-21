@@ -6,7 +6,8 @@
 *Return: no return
 */
 
-void _nop(__attribute__((unused))stack_t **top, __attribute__((unused))unsigned int line_number)
+void _nop(__attribute__((unused))stack_t **top,
+		__attribute__((unused))unsigned int line_number)
 {
 
 }
